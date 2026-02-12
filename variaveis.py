@@ -1,0 +1,1 @@
+input("Digite um valor aleatório: ")
