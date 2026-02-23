@@ -1,24 +1,34 @@
+import random as rd
 print("-------------------------------------")
 print("\nBem vindo ao jogo de adivinhação!\n")
 print("-------------------------------------")
 
-#Definição de variáveis
-n_secreto = 68
-entrada = int (input("digite um valor numérico: "))
-acertou = entrada == n_secreto
-entrada_maior = entrada > n_secreto
-entrada_menor = entrada < n_secreto
 
-print(f"Você digitou o número {entrada}")
+n_secreto = rd.randrange(1, 101)
+n_tentativas = 5
+rodada = 1
 
-#Verificação de acerto e erro
-if(acertou):
-    print("Parabéns, você acertou o número secreto")
-else:
-    if(entrada_maior):
-        print("O número digitado foi maior do que o número secreto")
-    if(entrada_menor):
-        print("O número digitado foi menor do que o número secreto")
+for rodada in range(1, n_tentativas + 1):
+    print(f"rodada {rodada}/{n_tentativas}")
+    entrada = int(input("digite um valor aleatório entre 1 e 100: "))
+    acerto = entrada == n_secreto
+    chutemaior = entrada > n_secreto
+    chutemenor = entrada < n_secreto
 
+    if(entrada > 100 or entrada < 1):
+        print("O valor digitado não é permitido")
+        continue
 
-print("Fim de jogo!")
+    print(f"Você digitou o número: {entrada}")
+
+    if(acerto):
+        print("Parabéns, você acertou")
+        break
+    else:
+        if(chutemaior):
+            print("o número secreto é menor que seu chute")
+        if(chutemenor):
+            print("o número secreto é maior que seu chute")
+
+    rodada = rodada + 1
+print("Fim de Jogo!")

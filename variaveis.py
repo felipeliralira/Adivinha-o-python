@@ -1,1 +1,4 @@
-input("Digite um valor aleatório: ")
+import random as rd
+
+testeRandom = round(rd.random() * 100)
+print(testeRandom)
